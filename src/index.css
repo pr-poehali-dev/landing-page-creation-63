@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 190 30% 98%;
+    --foreground: 200 40% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 200 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 200 40% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 190 85% 32%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 145 55% 42%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 190 25% 94%;
+    --muted-foreground: 200 15% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 40 95% 55%;
+    --accent-foreground: 200 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -97,5 +97,37 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Manrope", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: "Oswald", sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hover-lift {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px hsl(190 85% 32% / 0.25);
   }
 }
