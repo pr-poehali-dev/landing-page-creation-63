@@ -38,6 +38,29 @@ const advantages = [
   },
 ];
 
+const steps = [
+  {
+    icon: 'ClipboardList',
+    title: 'Оформление заявки',
+    text: 'Оставляете заявку на сайте, и с Вами связывается наш менеджер.',
+  },
+  {
+    icon: 'Ruler',
+    title: 'Бесплатный выезд инженера на замер',
+    text: 'Наш специалист бесплатно выезжает к Вам на участок, чтобы произвести замеры и оценить окончательную стоимость всех работ.',
+  },
+  {
+    icon: 'Wrench',
+    title: 'Договор и монтаж',
+    text: 'Подписываем договор, привозим оборудование и производим монтаж септика.',
+  },
+  {
+    icon: 'CheckCheck',
+    title: 'Завершающий этап',
+    text: 'Проводим обязательное тестирование системы, после чего вы принимаете работу и оплачиваете счёт.',
+  },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -131,6 +154,37 @@ const Index = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Steps */}
+      <section className="bg-primary py-16 text-primary-foreground lg:py-24">
+        <div className="container">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="mb-3 inline-block text-sm font-bold uppercase tracking-widest text-accent">Этапы работы</div>
+            <h2 className="font-display text-3xl font-bold uppercase leading-tight sm:text-4xl lg:text-5xl">
+              Сегодня — заявка,<br className="hidden sm:block" /> завтра — установленный септик
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, i) => (
+              <div
+                key={step.title}
+                className="animate-fade-up relative rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur-sm"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                    <Icon name={step.icon} size={28} />
+                  </div>
+                  <span className="font-display text-5xl font-bold text-primary-foreground/20">0{i + 1}</span>
+                </div>
+                <h3 className="mb-2 font-display text-lg font-semibold uppercase leading-tight tracking-wide">{step.title}</h3>
+                <p className="text-[15px] leading-relaxed text-primary-foreground/75">{step.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
